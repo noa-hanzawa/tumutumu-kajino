@@ -4,4 +4,5 @@ using namespace std;
 
 int main() { 
   cout << rand () % 10 << endl;
+  cout << "hello";
 }
