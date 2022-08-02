@@ -3,16 +3,15 @@
 using namespace std;
 
 int main() { 
-  int playnum;
-  string player1name;
-  string player2name;
-  int play1money=5000;
-  int play2money=5000;
-  int play1;  int player1;
-  int play2;  int player2;
+  int playnum;  //何回プレイするか
+  string player1name;  //プレイヤー1の名前
+  string player2name;  //プレイヤー２の名前 
+  int play1money=5000; //プレイヤー１の持ち金
+  int play2money=5000; //プレイヤー2の持ち金
+  int play1;  int player1; //プレイヤー１の掛け金、予想する数字
+  int play2;  int player2; //プレイヤー２の掛け金、予想する数字
   
-  cout<<"ツムツムカジノへようこそ!"<<endl;
-  cout<<"あなた方のお名前は？"<<endl;
+  cout<<"ツムツムカジノへようこそ!"<<"あなた方のお名前は？"<<endl;
   cout<<"1人目"<<endl;
   cin>>player1name;
   cout<<"2人目"<<endl;
@@ -29,22 +28,33 @@ int main() {
   
   for(int i=1; i<=playnum; i++){
     cout<<i<<"回目"<<endl;
+
+    
     for(;;){
       cout<<player1name<<"さん、掛け金を入力してください"<<endl;
       cin>>play1;
-      cout<<player2name<<"さん、掛け金を入力してください"<<endl;
-      cin>>play2;
-      if(play1<=play1money&&play2<=play2money){
-        cout<<player1name<<"さんの掛け金は"<<play1<<"\n"<<player2name<<"さんの掛け金は"<<play2<<endl;
-        break;
-      }
       if(play1>play1money){
         cout<<player1name<<"そんなに金持ってないだろ"<<endl;
       }
-    if(play2>play2money){
-        cout<<player2name<<"そんなに金持ってないだろ"<<endl;
+      if(play1<=play1money){
+        cout<<player1name<<"さんの掛け金は"<<play1<<"です"<<endl;
+        break;
       }
     }
+
+    for(;;){
+      cout<<player2name<<"さん、掛け金を入力してください"<<endl;
+      cin>>play2;
+      if(play2>play2money){
+        cout<<player2name<<"そんなに金持ってないだろ"<<endl;
+      }
+      if(play2<=play2money){
+        cout<<player2name<<"さんの掛け金は"<<play2<<"です"<<endl;
+        break;
+        }  
+    }
+
+    
     cout<<player1name<<"さん予想する数字は"<<endl;
     cin>>player1;
     cout<<player2name<<"さん予想する数字は"<<endl;
@@ -85,6 +95,8 @@ int main() {
     }
     if(play1money<=0||play2money<=0) break;
   }
+
+  
   if(play1money>play2money){
     cout<<player1name<<"さんの勝利"<<endl;
   }
